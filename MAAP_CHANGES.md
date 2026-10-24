@@ -25,11 +25,14 @@ This changes results, on purpose: the heater P and I values in L1A products made
 
 How to install from source: the version comes from the git tags (versioningit), so `pip install .` needs a clone that includes the tags.
 
+## 2026-10-24: Python 3.11 or newer
+
+`src/pyspex/gen_l1a/l1a.py` imports `typing.Self`, which exists only from Python 3.11, so on 3.10 `spx1_level01a` failed at import although `pyproject.toml` allowed 3.10. `requires-python` is now `>=3.11`. Results do not change.
+
 ## Not changed
 
 - `spx1_level01a` still writes a slightly different layout from the operational product made by `scripts/l1agen_spex.py` (`science_data/science_hk`, `image_attributes/image_id` and `ICU_4P0VB_V` instead of `detector_telemetry`, `image_ID` and `ICU_4P0V_V`, and no `MPS_ACT_STATUS` or `SW_MAIN_LOOP_COUNT` in `NomHK_telemetry`). Upstream's development branch changes these; they are names and missing fields, not wrong values.
 - `scripts/l1agen_spex.py --version` still says 1.4.18.
-- `src/pyspex/gen_l1a/l1a.py` imports `typing.Self`, which needs Python 3.11, although `pyproject.toml` allows 3.10.
 
 ## Check
 
