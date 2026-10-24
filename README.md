@@ -28,3 +28,5 @@ Online documentation is available from [Read the Docs](https://pyspex.readthedoc
 The `pyspex` package requires Python3.8+ and the Python packages: h5py, netCDF4, numpy and xarray.
 
 Installation instructions are provided on [Read the Docs](https://pyspex.readthedocs.io/en/latest/build.html) or in the INSTALL file.
+
+To install from source, run `pip install .` in a git clone that includes the release tags: the version number is taken from the latest tag, so a source archive or a clone without tags cannot be installed. This release needs h5yaml older than 0.3; pip selects a matching version.
